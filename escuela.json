@@ -1,0 +1,38 @@
+[
+  {
+    "nombre": "Perico",
+    "apellido": "González",
+    "edad": 12,
+    "asignatura": "desarrollo"
+  },
+  {
+    "nombre": "Paco",
+    "apellido": "Lopez",
+    "edad": 21,
+    "asignatura": "python"
+  },
+  {
+    "nombre": "Pedro",
+    "apellido": "Martinez",
+    "edad": 25,
+    "asignatura": "python"
+  },
+  {
+    "nombre": "Eva-Maria",
+    "apellido": "Rodriguez",
+    "edad": 27,
+    "asignatura": "integracion"
+  },
+  {
+    "nombre": "Andrea",
+    "apellido": "Ricou",
+    "edad": 28,
+    "asignatura": "enfermeria"
+  },
+  {
+    "nombre": "Jordi",
+    "apellido": "Company",
+    "edad": 50,
+    "asignatura": "python"
+  }
+]
