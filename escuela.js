@@ -84,7 +84,7 @@
 // Funcion para establecer el titulo del proceso
 function establecerTitulo(titulo) {
     
-    tituloProceso = "\n" + titulo + " :";
+    tituloProceso = titulo;
     console.log(tituloProceso);
     console.log("=".repeat(tituloProceso.length - 1) + "\n");
 }
@@ -109,7 +109,8 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     // Listado de alumnos
     // =========================
     // Llamamos a la función para establecer el título
-    establecerTitulo("Alumnos matriculados");
+    tituloProceso = "\nAlumnos matriculados :";
+    establecerTitulo(tituloProceso);
     // Ordenamos los alumnos por apellido, nombre y asignatura
     escuelaData.sort((a, b) => {
         if (a.apellido === b.apellido) {
@@ -127,56 +128,85 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     console.log("\n" + "-".repeat(tituloProceso.length - 1) + "\n");
     console.log(`Total: ${escuelaData.length} alumnos matriculados\n`);
     // console.log(escuelaData);
-    console.log(process.argv.length);
+    // console.log(process.argv.length);
     process.exit(1);
 } else if (process.argv.length == 3) { // 2 + 1 = 3 (2 - 2)
     // =========================
     // Alumnos de la asignatura
     // =========================
-    // Montamos el titulo del proceso
-    // let asignatura = argumento1;
-    escuelaData.forEach(asignatura => {
-        console.log(asignatura.asignatura);
-        console.log(argumento1);
-        if (asignatura == argumento1) {
-            tituloProceso = "\n" + "Alumnos matriculados en " + asignatura + ":\n";
-            console.log(tituloProceso);
-            console.log("=".repeat(tituloProceso.length - 1) + "\n");
-
-            // Filtramos los alumnos por asignatura
-            escuelaData.forEach(alumno => {
-                if (alumno.asignatura === argumento1) {
-                    console.log(`${alumno.nombre} ${alumno.apellido} ${alumno.edad}`);
-                }
-            });
-            
-            console.log(process.argv.length);
-            
-        } else {
-            // Si no hay alumnos en la asignatura
-            console.log(`No tenemos alumnos matriculados en ${argumento1}`);
-        
-        }
+    // Comprobamos si el argumento es una asignatura valida
+    if (!escuelaData.some(alumno => alumno.asignatura === argumento1)) {
+            // Montamos el titulo del proceso
+        tituloProceso = `\nNo tenemos matriculado a ningún alumno en ${argumento1} :`;
+        establecerTitulo(tituloProceso);
+        // console.log(process.argv.length);
+        //vamos a mostrar las asignaturas disponibles
+        console.log("Asignaturas disponibles :\n");
+        const asignaturas = [];
+        escuelaData.forEach(alumno => {
+            let asignaturaSeleccionada = alumno.asignatura;
+            // Comprobamos si la asignatura ya está en el array
+            if (asignaturas.includes(asignaturaSeleccionada)) {
+                return; // Si ya está, no la añadimos
+            }
+            asignaturas.push(asignaturaSeleccionada);
+        });
+        // console.log(asignaturas);
+        asignaturas.forEach(asignatura => {
+            console.log(`- ${asignatura}`);
+        });
         process.exit(1);
+    }
+
+    // Montamos el titulo del proceso
+    tituloProceso = `\nAlumnos matriculados en ${argumento1} :`;
+    establecerTitulo(tituloProceso);
+    // Filtramos los alumnos por asignatura
+    alumnosMatriculados = 0;
+    escuelaData.forEach(alumno => {
+        if (alumno.asignatura === argumento1) {
+            console.log(`${alumno.nombre} ${alumno.apellido} ${alumno.edad}`);
+            alumnosMatriculados++;
+        }
     });
+    console.log("\n" + "-".repeat(tituloProceso.length - 1) + "\n");
+    console.log(`Total: ${alumnosMatriculados} alumnos matriculados\n`);
+    // console.log(process.argv.length);
+    process.exit(1);
 } else if (process.argv.length == 4) { // 2 + 2 = 4 (2 - 3)
     // =========================
     // Datos de alumno
     // =========================
+    // Comprobamos si el alumno está matriculado
+    const alumno = escuelaData.find(alumno => 
+        alumno.nombre === argumento1 && alumno.apellido === argumento2
+    );
+    if (!alumno) {
+        // Montamos el titulo del proceso
+        tituloProceso = `\nNo tenemos matriculado a ese alumno :`;
+        establecerTitulo(tituloProceso);
+        console.log(`${argumento1} ${argumento2} no está matriculado`);
+        process.exit(1);
+    }
     // Montamos el titulo del proceso
-    let asignatura = argumento1;
-    tituloProceso = "\n" + "Alumnos matriculados en" + asignatura + " :";
-    console.log(tituloProceso);
-    console.log("=".repeat(tituloProceso.length - 1) + "\n");
+    //El alumno nombre_alumno apellido_alumno
+    tituloProceso = `\nEl alumno ${argumento1} ${argumento2} está matriculado de :`;
+    establecerTitulo(tituloProceso);
+
+    escuelaData.forEach(alumno => {
+        if (alumno.nombre == argumento1 && alumno.apellido == argumento2) {
+            console.log(`-- ${alumno.asignatura}`);
+        }
+    });
     
-    console.log(process.argv.length);
+    // console.log(process.argv.length);
     process.exit(1);
 } else if (process.argv.length == 5 && process.argv[4] !== '-1') { // 2 + 3 = 5 (2 - 4)
     // =========================
     // Borrar alumno
     // =========================
-    console.log("Alumno borrado :");
-    console.log("================================");
+    tituloProceso = `\nEl alumno ${argumento1} ${argumento2} ha sido borrado`;
+    establecerTitulo(tituloProceso);
     
     console.log(process.argv.length);
     process.exit(1);
@@ -185,27 +215,25 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     // Matriculación de alumno
     // =========================
     // Llamamos a la función para establecer el título
-    let nombre = argumento1;
-    let apellido = argumento2;
-    let edad = argumento3;
-    let asignatura = argumento4;
+    tituloProceso = "\nMatriculado el alumno :";
+    establecerTitulo(tituloProceso);
+    console.log(`${argumento1} ${argumento2} en ${argumento4}`);
 
-    tituloProceso = "\n" + "Matriculado el alumno "+ nombre + " " + apellido + "\n";
-    console.log(tituloProceso);
-    console.log("=".repeat(tituloProceso.length - 1) + "\n");
+    // console.log(tituloProceso);
+    // console.log("=".repeat(tituloProceso.length - 1) + "\n");
     // console.log(nombreAlumno, apellidoAlumno, edadAlumno, asignatura);
 
     escuelaData.push({
-        nombre: nombre,
-        apellido: apellido,
-        edad: parseInt(edad, 10),
-        asignatura: asignatura
+        nombre: argumento1,
+        apellido: argumento2,
+        edad: parseInt(argumento3, 10),
+        asignatura: argumento4
     });
 
     fs.writeFileSync('escuela.json', JSON.stringify(escuelaData, null, 2), 'utf-8');
 
     // console.log(escuelaData);
-    console.log(process.argv.length);
+    // console.log(process.argv.length);
     process.exit(1);
 } else {
     // =========================
