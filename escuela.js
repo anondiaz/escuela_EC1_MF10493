@@ -207,6 +207,31 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     // =========================
     tituloProceso = `\nEl alumno ${argumento1} ${argumento2} ha sido borrado`;
     establecerTitulo(tituloProceso);
+    // Comprobamos si el tercer argumento es -1
+    if (argumento3 !== '-1') {
+        // Montamos el titulo del proceso
+        tituloProceso = `\nEl tercer argumento debe ser -1 :`;
+        establecerTitulo(tituloProceso);
+        console.log("Error: El tercer argumento debe ser -1 para borrar un alumno");
+    } else {
+        // Comprobamos si el alumno está matriculado
+        const alumnoIndex = escuelaData.findIndex(alumno =>
+            alumno.nombre === argumento1 &&
+            alumno.apellido === argumento2
+        );
+        if (alumnoIndex === -1) {
+            // Montamos el titulo del proceso
+            tituloProceso = `\nNo tenemos matriculado a ese alumno :`;
+            establecerTitulo(tituloProceso);
+            console.log(`${argumento1} ${argumento2} no está matriculado`);
+            process.exit(1);
+        }
+        // Borramos el alumno
+        escuelaData.splice(alumnoIndex, 1);
+        // Guardamos los cambios en el fichero  
+        fs.writeFileSync('escuela.json', JSON.stringify(escuelaData, null, 2), 'utf-8');
+        console.log(`${argumento1} ${argumento2} ha sido borrado`);
+    }    
     
     console.log(process.argv.length);
     process.exit(1);
@@ -214,6 +239,18 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     // =========================
     // Matriculación de alumno
     // =========================
+    // Comprobamos si el alumno ya esta matriculado en la asignatura
+    const alumnoExistente = escuelaData.find(alumno => 
+        alumno.nombre === argumento1 && 
+        alumno.apellido === argumento2 && 
+        alumno.asignatura === argumento4
+    );
+    if (alumnoExistente) {
+        // Montamos el titulo del proceso
+        tituloProceso = `\nEl alumno ${argumento1} ${argumento2} ya está matriculado en ${argumento4} :`;
+        establecerTitulo(tituloProceso);
+        process.exit(1);
+    }
     // Llamamos a la función para establecer el título
     tituloProceso = "\nMatriculado el alumno :";
     establecerTitulo(tituloProceso);

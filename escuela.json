@@ -66,8 +66,15 @@
     "asignatura": "node.js"
   },
   {
-    "nombre": "Andrea",
-    "apellido": "Ricou",
-    "edad": -1
+    "nombre": "Perico",
+    "apellido": "González",
+    "edad": 12,
+    "asignatura": "node.js"
+  },
+  {
+    "nombre": "Perico",
+    "apellido": "González",
+    "edad": 12,
+    "asignatura": "python"
   }
 ]
