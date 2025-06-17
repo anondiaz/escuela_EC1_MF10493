@@ -205,14 +205,12 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     // =========================
     // Borrar alumno
     // =========================
-    tituloProceso = `\nEl alumno ${argumento1} ${argumento2} ha sido borrado`;
-    establecerTitulo(tituloProceso);
     // Comprobamos si el tercer argumento es -1
     if (argumento3 !== '-1') {
         // Montamos el titulo del proceso
-        tituloProceso = `\nEl tercer argumento debe ser -1 :`;
+        tituloProceso = `\nPara borrar el tercer argumento debe ser -1 :`;
         establecerTitulo(tituloProceso);
-        console.log("Error: El tercer argumento debe ser -1 para borrar un alumno");
+        // console.log("Error: El tercer argumento debe ser -1 para borrar un alumno");
     } else {
         // Comprobamos si el alumno está matriculado
         const alumnoIndex = escuelaData.findIndex(alumno =>
@@ -226,6 +224,8 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
             console.log(`${argumento1} ${argumento2} no está matriculado`);
             process.exit(1);
         }
+        tituloProceso = `\nEl alumno ${argumento1} ${argumento2} ha sido borrado`;
+        establecerTitulo(tituloProceso);
         // Borramos el alumno
         escuelaData.splice(alumnoIndex, 1);
         // Guardamos los cambios en el fichero  

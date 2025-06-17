@@ -76,5 +76,10 @@
     "apellido": "González",
     "edad": 12,
     "asignatura": "python"
+  },
+  {
+    "nombre": "Perico",
+    "apellido": "Palotes",
+    "edad": -1
   }
 ]
