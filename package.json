@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "name": "escuela_ec1_mf10493",
+  "version": "1.0.0",
+  "description": "Aplicación para consultar los alumnos",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anondiaz/escuela_EC1_MF10493.git"
+  },
+  "keywords": [
+    "Escuela",
+    "Alumnos"
+  ],
+  "author": "Andres Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anondiaz/escuela_EC1_MF10493/issues"
+  },
+  "homepage": "https://github.com/anondiaz/escuela_EC1_MF10493#readme"
+}

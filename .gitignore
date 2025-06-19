@@ -35,4 +35,5 @@ email_access_data.php
 .env
 # vendor
 published_tareas_mariadb_night_clean.sql
-
+node_modules
+requisitos.txt
