@@ -104,7 +104,7 @@ const argumento3 = process.argv[4];
 const argumento4 = process.argv[5];
 
 // Leemos los argumentos de la línea de comandos
-if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
+if (process.argv.length == 2 ) { // 2 + 0 = 2 (0 - 1)
     // =========================
     // Listado de alumnos
     // =========================
@@ -201,7 +201,7 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     
     // console.log(process.argv.length);
     process.exit(1);
-} else if (process.argv.length == 5 && process.argv[4] !== '-1') { // 2 + 3 = 5 (2 - 4)
+} else if (process.argv.length == 5 && process.argv[4] == '-1') { // 2 + 3 = 5 (2 - 4)
     // =========================
     // Borrar alumno
     // =========================
@@ -235,7 +235,7 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     
     console.log(process.argv.length);
     process.exit(1);
-} else if (process.argv.length > 2 && process.argv.length < 7) { // 2 + 4 = 6 (2 - 5)
+} else if (process.argv.length == 6) { // 2 + 4 = 6 (2 - 5)
     // =========================
     // Matriculación de alumno
     // =========================
@@ -281,7 +281,7 @@ if (process.argv.length < 3) { // 2 + 0 = 2 (0 - 1)
     console.log("O: node escuela.js [nombre_alumno] [apellido_alumno] -1");
     console.log("O: node escuela.js [asignatura]");
     console.log("O: node escuela.js");
-    console.log(process.argv.length);
+    // console.log(process.argv.length);
     process.exit(1);
 }
 

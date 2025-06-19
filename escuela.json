@@ -1,11 +1,5 @@
 [
   {
-    "nombre": "Perico",
-    "apellido": "González",
-    "edad": 12,
-    "asignatura": "desarrollo"
-  },
-  {
     "nombre": "Andrea",
     "apellido": "Ricou",
     "edad": 28,
@@ -76,10 +70,5 @@
     "apellido": "González",
     "edad": 12,
     "asignatura": "python"
-  },
-  {
-    "nombre": "Perico",
-    "apellido": "Palotes",
-    "edad": -1
   }
 ]
