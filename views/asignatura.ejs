@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/icons/escuela.png" type="image/x-icon" />
+    <title>Listado alumnos asignatura</title>
+    <link rel="stylesheet" href="/css/listados.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Consultas alumnos</h1>
+    </header>
+    <main>
+      <section>
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Asignatura</th>
+          </tr>
+          <% alumnosAsignatura.forEach(alumno => { %>
+          <tr>
+            <td><%= alumno.nombre %></td>
+            <td><%= alumno.apellido %></td>
+            <td><%= alumno.edad %></td>
+            <td><%= alumno.asignatura %></td>
+          </tr>
+          <% }); %>
+          <tr>
+            <td colspan="4">
+              Total de alumnos matriculados en <%= asignatura %>: <%=
+              alumnosAsignatura.length %>
+            </td>
+          </tr>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

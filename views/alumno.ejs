@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/icons/escuela.png" type="image/x-icon" />
+    <title>Listado asignaturas alumno</title>
+    <link rel="stylesheet" href="/css/listados.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Consultas alumnos</h1>
+    </header>
+    <main>
+      <section>
+        <table>
+          <tr>
+            <th>El alumno: <%= nombre %> <%= apellido %></th>
+          </tr>
+          <tr>
+            <td>Está matriculado en las siguientes asignaturas:</td>
+          </tr>
+          <% asignaturasAlumno.forEach(alumno => { %>
+          <tr>
+            <td><%= alumno.asignatura %></td>
+          </tr>
+          <% }); %>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>
