@@ -233,7 +233,7 @@ if (process.argv.length == 2 ) { // 2 + 0 = 2 (0 - 1)
         console.log(`${argumento1} ${argumento2} ha sido borrado`);
     }    
     
-    console.log(process.argv.length);
+    // console.log(process.argv.length);
     process.exit(1);
 } else if (process.argv.length == 6) { // 2 + 4 = 6 (2 - 5)
     // =========================

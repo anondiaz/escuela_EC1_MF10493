@@ -1,11 +1,5 @@
 [
   {
-    "nombre": "Andrea",
-    "apellido": "Ricou",
-    "edad": 28,
-    "asignatura": "javascript"
-  },
-  {
     "nombre": "Paco",
     "apellido": "Lopez",
     "edad": 21,
@@ -22,12 +16,6 @@
     "apellido": "Rodriguez",
     "edad": 27,
     "asignatura": "integracion"
-  },
-  {
-    "nombre": "Andrea",
-    "apellido": "Ricou",
-    "edad": 28,
-    "asignatura": "enfermeria"
   },
   {
     "nombre": "Pedro",
@@ -70,5 +58,17 @@
     "apellido": "González",
     "edad": 12,
     "asignatura": "python"
+  },
+  {
+    "nombre": "Andrea",
+    "apellido": "Ricou",
+    "edad": 28,
+    "asignatura": "python"
+  },
+  {
+    "nombre": "Andrea",
+    "apellido": "Ricou",
+    "edad": 28,
+    "asignatura": "enfermeria"
   }
 ]
