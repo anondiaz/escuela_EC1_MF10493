@@ -24,51 +24,21 @@
     "asignatura": "desarrollo"
   },
   {
-    "nombre": "Jordi",
-    "apellido": "Company",
-    "edad": 50,
-    "asignatura": "python"
-  },
-  {
-    "nombre": "Josep",
-    "apellido": "Campderros",
-    "edad": 48,
-    "asignatura": "node.js"
-  },
-  {
-    "nombre": "Pilar",
-    "apellido": "Bardavio",
-    "edad": 61,
-    "asignatura": "node.js"
-  },
-  {
-    "nombre": "Jordi",
-    "apellido": "Company",
-    "edad": 50,
-    "asignatura": "node.js"
-  },
-  {
     "nombre": "Perico",
     "apellido": "González",
     "edad": 12,
     "asignatura": "node.js"
   },
   {
-    "nombre": "Perico",
-    "apellido": "González",
-    "edad": 12,
-    "asignatura": "python"
+    "nombre": "Luis",
+    "apellido": "Garcia",
+    "edad": 28,
+    "asignatura": "node.js"
   },
   {
-    "nombre": "Andrea",
-    "apellido": "Ricou",
-    "edad": 28,
-    "asignatura": "python"
-  },
-  {
-    "nombre": "Andrea",
-    "apellido": "Ricou",
-    "edad": 28,
-    "asignatura": "enfermeria"
+    "nombre": "Jose",
+    "apellido": "Aupa",
+    "edad": 30,
+    "asignatura": "php"
   }
 ]

@@ -77,6 +77,11 @@
 // Vacio -> Listado de alumnos
 // Asignatura -> Alumnos de una asignatura
 // Nombre y apellido -> Datos de un alumno
+//
+// Opciones API:
+// GET /api -> Listado de todos los alumnos
+// GET /api/:asignatura -> Alumnos de una asignatura
+// GET /api/:nombre/:apellido -> Datos de un alumno
 // ------------------------------------------------------------------------------------
 
 //Dependencias
@@ -177,14 +182,7 @@ app.get('/api/:asignatura', (req, res) => {
 
     // Mostramos los datos de los alumnos en la asignatura en formato JSON
     // console.log(alumnosAsignatura);
-    res.json({
-        // Nombre de la asignatura
-        asignatura: asignatura,
-        // Alumnos matriculados en la asignatura
-        alumnos: alumnosAsignatura,
-        // Total de alumnos matriculados en la asignatura
-        total: alumnosAsignatura.length
-    });    
+    res.json(alumnosAsignatura);    
 });
 
 
@@ -206,15 +204,32 @@ app.get('/api/:nombre/:apellido', (req, res) => {
     }
     // Mostramos los datos del alumno
     // console.log(asignaturasAlumno);
-    res.json({asignaturasAlumno
-    }); 
+    res.json(asignaturasAlumno); 
 });
 
 app.get('/', (req, res) => {
     // =========================
     // Página de inicio
     // =========================
-    res.render('root', {escuelaData});
+        escuelaData.sort((a, b) => {
+        if (a.apellido === b.apellido) {
+            if (a.nombre === b.nombre) {
+                return a.asignatura.localeCompare(b.asignatura);
+            }
+            return a.nombre.localeCompare(b.nombre);
+        }
+        return a.apellido.localeCompare(b.apellido);
+    });
+        const alumnos = [];
+    escuelaData.forEach(alumno => {
+        let alumnoSeleccionado = alumno.nombre + alumno.apellido;
+        // Comprobamos si la asignatura ya está en el array
+        if (alumnos.includes(alumnoSeleccionado)) {
+            return; // Si ya está, no la añadimos
+        }
+        alumnos.push(alumnoSeleccionado);
+    });
+    res.render('root', {escuelaData, alumnos});
 });
 
 app.get('/:asignatura', (req, res) => {
